@@ -1,0 +1,39 @@
+<form class="space-y-4 mx-auto max-w-sm">
+	{{ form_start(form) }}
+	<div class="form-group">
+		{{ form_label(form.tournamentName, 'Tournament Name', {'label_attr': {'class': 'form-label'}}) }}
+		{{ form_widget(form.tournamentName, {'attr': {'class': 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'}}) }}
+	</div>
+	<div class="form-group">
+		{{ form_label(form.startDate, 'Start Date', {'label_attr': {'class': 'form-label'}}) }}
+		{{ form_widget(form.startDate, {'attr': {'class': 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'}}) }}
+	</div>
+	<div class="form-group">
+		{{ form_label(form.endDate, 'End Date', {'label_attr': {'class': 'form-label'}}) }}
+		{{ form_widget(form.endDate, {'attr': {'class': 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'}}) }}
+	</div>
+	<div class="form-group">
+		{{ form_label(form.location, 'Location', {'label_attr': {'class': 'form-label'}}) }}
+		{{ form_widget(form.location, {'attr': {'class': 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'}}) }}
+	</div>
+	<div class="form-group">
+		{{ form_label(form.description, 'Description', {'label_attr': {'class': 'form-label'}}) }}
+		{{ form_widget(form.description, {'attr': {'class': 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'}}) }}
+	</div>
+	<div class="form-group">
+		{{ form_label(form.maxParticipants, 'Max Participants', {'label_attr': {'class': 'form-label'}}) }}
+		{{ form_widget(form.maxParticipants, {'attr': {'class': 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'}}) }}
+	</div>
+	<div class="form-group">
+		{{ form_label(form.status, 'Status', {'label_attr': {'class': 'form-label'}}) }}
+		{{ form_widget(form.status, {'attr': {'class': 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'}}) }}
+	</div>
+	<div class="form-group">
+		{{ form_label(form.game, 'Game', {'label_attr': {'class': 'form-label'}}) }}
+		{{ form_widget(form.game, {'attr': {'class': 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'}}) }}
+	</div>
+	<button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+		{{ button_label|default('Save') }}
+	</button>
+	{{ form_end(form) }}
+</form>

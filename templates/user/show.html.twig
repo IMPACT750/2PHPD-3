@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User
+{% endblock %}
+
+{% block body %}
+	<h1 class="text-2xl font-bold mb-4">User</h1>
+
+	<table class="table-auto w-full border-collapse">
+		<tbody>
+			<tr class="border-b">
+				<th class="px-4 py-2 text-left font-medium">Id</th>
+				<td class="px-4 py-2">{{ user.id }}</td>
+			</tr>
+			<tr class="border-b">
+				<th class="px-4 py-2 text-left font-medium">Username</th>
+				<td class="px-4 py-2">{{ user.username }}</td>
+			</tr>
+			<tr class="border-b">
+				<th class="px-4 py-2 text-left font-medium">Roles</th>
+				<td class="px-4 py-2">{{ user.roles ? user.roles|json_encode : '' }}</td>
+			</tr>
+			<tr class="border-b">
+				<th class="px-4 py-2 text-left font-medium">Password</th>
+				<td class="px-4 py-2">{{ user.password }}</td>
+			</tr>
+			<tr class="border-b">
+				<th class="px-4 py-2 text-left font-medium">LastName</th>
+				<td class="px-4 py-2">{{ user.lastName }}</td>
+			</tr>
+			<tr class="border-b">
+				<th class="px-4 py-2 text-left font-medium">FirstName</th>
+				<td class="px-4 py-2">{{ user.firstName }}</td>
+			</tr>
+			<tr class="border-b">
+				<th class="px-4 py-2 text-left font-medium">EmailAddress</th>
+				<td class="px-4 py-2">{{ user.emailAddress }}</td>
+			</tr>
+			<tr class="border-b">
+				<th class="px-4 py-2 text-left font-medium">Status</th>
+				<td class="px-4 py-2">{{ user.status }}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<div class="mt-4 flex justify-around">
+		<a href="{{ path('app_user_index') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Back to list</a>
+		<a href="{{ path('app_user_edit', {'id': user.id}) }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Edit</a>
+		{# {{ include('user/_delete_form.html.twig') }} #}
+		<form action="{{ path('app_user_delete', {'id': user.id}) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this item?');">
+			<input type="hidden" name="_method" value="DELETE">
+			<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
+			<button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
+		</form>
+	</div>
+{% endblock %}

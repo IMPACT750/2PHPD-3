@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit User
+{% endblock %}
+
+{% block body %}
+	<h1 class="text-2xl font-bold mb-4 text-center mt-4">Edit User</h1>
+
+	{{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
+
+	<div class="flex justify-center">
+		<a href="{{ path('app_user_index') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+			Back to list</a>
+	</div>
+
+	{# btn suprimer #}
+	<div class="flex justify-center mt-4">
+		{{ include('user/_delete_form.html.twig') }}
+	</div>
+{% endblock %}

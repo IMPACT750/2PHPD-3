@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User index
+{% endblock %}
+
+{% block body %}
+	<h1 class="text-2xl font-bold mb-4 text-center mx-auto mt-4">User index</h1>
+
+	<table class="table-auto w-full border-collapse">
+		<thead>
+			<tr class="bg-gray-200">
+				<th class="px-4 py-2">Id</th>
+				<th class="px-4 py-2">Username</th>
+				<th class="px-4 py-2">Roles</th>
+				<th class="px-4 py-2">Password</th>
+				<th class="px-4 py-2">LastName</th>
+				<th class="px-4 py-2">FirstName</th>
+				<th class="px-4 py-2">EmailAddress</th>
+				<th class="px-4 py-2">Status</th>
+				<th class="px-4 py-2">Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for user in users %}
+				<tr class="border-b">
+					<td class="px-4 py-2">{{ user.id }}</td>
+					<td class="px-4 py-2">{{ user.username }}</td>
+					<td class="px-4 py-2">{{ user.roles ? user.roles|json_encode : '' }}</td>
+					<td class="px-4 py-2">{{ user.password }}</td>
+					<td class="px-4 py-2">{{ user.lastName }}</td>
+					<td class="px-4 py-2">{{ user.firstName }}</td>
+					<td class="px-4 py-2">{{ user.emailAddress }}</td>
+					<td class="px-4 py-2">{{ user.status }}</td>
+					<td class="px-4 py-2">
+						<a href="{{ path('app_user_show', {'id': user.id}) }}" class="text-blue-500 hover:text-blue-700">Show</a>
+						<a href="{{ path('app_user_edit', {'id': user.id}) }}" class="text-green-500 hover:text-green-700">Edit</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="9" class="px-4 py-2 text-center">No records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('app_user_new') }}" class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Create new</a>
+{% endblock %}

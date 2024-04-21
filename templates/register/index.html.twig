@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Registration index
+{% endblock %}
+
+{% block body %}
+	<h1 class="text-2xl font-bold mb-4 text-center mx-auto mt-4">Registration index</h1>
+
+	<table class="table-auto w-full border-collapse">
+		<thead>
+			<tr class="bg-gray-200">
+				<th class="px-4 py-2">Id</th>
+				<th class="px-4 py-2">RegistrationDate</th>
+				<th class="px-4 py-2">Status</th>
+				<th class="px-4 py-2">Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for registration in registrations %}
+				<tr class="border-b">
+					<td class="px-4 py-2">{{ registration.id }}</td>
+					<td class="px-4 py-2">{{ registration.registrationDate ? registration.registrationDate|date('Y-m-d H:i:s') : '' }}</td>
+					<td class="px-4 py-2">{{ registration.status }}</td>
+					<td class="px-4 py-2">
+						<a href="{{ path('app_register_show', {'id': registration.id}) }}" class="text-blue-500 hover:text-blue-700">Show</a>
+						<a href="{{ path('app_register_edit', {'id': registration.id}) }}" class="text-green-500 hover:text-green-700">Edit</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="4" class="px-4 py-2 text-center">No records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('app_register_new') }}" class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Create new</a>
+{% endblock %}
