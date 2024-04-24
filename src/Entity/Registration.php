@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\RegistrationRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Metadata\ApiResource;
+use App\Repository\RegistrationRepository;
 
 #[ORM\Entity(repositoryClass: RegistrationRepository::class)]
+#[ApiResource()]
 class Registration
 {
     #[ORM\Id]

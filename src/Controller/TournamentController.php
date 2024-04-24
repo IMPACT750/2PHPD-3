@@ -35,10 +35,16 @@ class TournamentController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($tournament);
-            $entityManager->flush();
+            try{
+                $entityManager->persist($tournament);
+                $entityManager->flush();
+                return $this->redirectToRoute('app_tournament_index', [], Response::HTTP_SEE_OTHER);
 
-            return $this->redirectToRoute('app_tournament_index', [], Response::HTTP_SEE_OTHER);
+            } catch (\Exception $e){
+                $this->addFlash('error', 'Erreur lors de la création du tournoi.');
+                return $this->redirectToRoute('app_tournament_index', [], Response::HTTP_SEE_OTHER);
+            }
+
         }
 
         return $this->render('tournament/new.html.twig', [

@@ -1,8 +1,6 @@
 # Projet 2PHPD
 
-Lancer du projet
-1. Clonez ce dépôt sur votre machine locale.
-2. Assurez-vous d'avoir PHP et Composer installés.
+instalation du projet
 3. Exécutez `composer install` pour installer les dépendances.
 4. Configurez votre base de données dans le fichier `.env`.
 5. Exécutez `php bin/console doctrine:migrations:migrate` pour exécuter les migrations.

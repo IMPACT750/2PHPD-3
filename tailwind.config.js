@@ -1,25 +1,32 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./assets/**/*.js",  // Assurez-vous que les chemins correspondent à l'endroit où vos fichiers utilisent des classes Tailwind
+    "./assets/**/*.js",
     "./templates/**/*.html.twig",
   ],
   theme: {
     extend: {
       colors: {
-        'custom-blue': '#243c5a',  // Ajoute une nouvelle couleur personnalisée
+        'brand-blue': '#007ace',  // Une couleur bleue vibrante pour la marque
+        'warm-gray': '#f5f5f5',  // Un gris doux pour les arrière-plans
+        'rich-black': '#080808',  // Un noir profond pour le texte et les éléments
       },
-      spacing: {
-        '72': '18rem',  // Ajoute une nouvelle taille de spacing
-        '84': '21rem',
+      fontFamily: {
+        'sans': ['Helvetica Neue', 'Arial', 'sans-serif'],  // Utilisation de Helvetica Neue pour les textes sans serif
+        'serif': ['Georgia', 'Times New Roman', 'serif']    // Georgia comme police par défaut pour les textes serif
       },
-      borderRadius: {
-        'xl': '1.5rem'  // Ajoute une nouvelle taille pour border-radius
+      fontSize: {
+        'xs': '.75rem',    // Taille extra small
+        'sm': '.875rem',   // Taille small
+        'lg': '1.25rem',   // Taille large
+        'xl': '1.5rem',    // Taille extra large
+      },
+      boxShadow: {
+        'custom': '0 4px 6px rgba(0, 0, 0, 0.1)',  // Ombre personnalisée pour les éléments flottants
       }
     },
   },
   plugins: [
-    require('@tailwindcss/forms'),  // Ajoute le plugin pour les formulaires
-    require('@tailwindcss/typography'),  // Ajoute le plugin pour la typographie
+    require('@tailwindcss/forms'),  // Active le support amélioré pour les formulaires
   ],
 }
